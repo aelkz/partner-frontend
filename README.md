@@ -1,18 +1,20 @@
-# partner-frontend
+# Partner Frontend
 
-> Partner Frontend
+Nesta aplicação utilizamos o framework de frontend [vue](https://vuejs.org/).
 
-## Build Setup
+## Estrutura do projeto
 
-``` bash
-# install dependencies
-npm install
+A estrutura do projeto segue alguns padrões e boas práticas de aplicações Vue.
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+src/api        -> Backend de API's que serão usadas pelo projeto
+src/assets     -> Imagens e outros assets
+src/components -> Components Vue
+src/router     -> Routas
+src/store      -> Store centralizados para Vuex
+src/style      -> Estilos genéricos
+main.js        -> Principal ponto de entrada da aplicação
+```
+---
+Para detalhes de como a aplicação foi construida acesse
+[how to build](README-HOWTO.build.md)
