@@ -17,4 +17,4 @@ main.js        -> Principal ponto de entrada da aplicação
 ```
 ---
 Para detalhes de como a aplicação foi construida acesse
-[how to build](README-HOWTO.build.md)
+[how to build](README-HOWTO.md)

@@ -1,3 +1,7 @@
+import store from '../store'
+import { AUTH_MODULE } from '../store'
+import { GET_TOKEN } from '../store/getters/auth'
+
 let nextProductId = 1
 
 const products = [
@@ -12,11 +16,13 @@ const products = [
 
 export default {
     getAllProducts(cb) {
-        console.log('Reading products...')
+        let token = store.getters[AUTH_MODULE+'/'+GET_TOKEN]
+        console.log('Reading products using token \''+token+'\'...')
         setTimeout(() => cb(products), 100)
     },
     buyProducts(products, cb, errorCb) {
-        console.log('Buying products...')
+        let token = store.getters[AUTH_MODULE+'/'+GET_TOKEN]
+        console.log('Buying products using token \''+token+'\'...')
         setTimeout(() => {
             cb()
         }, 100);

@@ -8,7 +8,7 @@
         </li>
         <li class="nav-item active">
           <router-link to="/login" v-if="!loggedIn" class="nav-link">Login</router-link>
-          <router-link to="/login" v-if="loggedIn" class="nav-link">Logout</router-link>
+          <a href="#" v-if="loggedIn" class="nav-link" @click="logout()">Logout</a>
         </li>
       </ul>
     </nav>
@@ -18,16 +18,36 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-import auth from '../auth'
+import { AUTH_MODULE } from '../store'
+import { IS_LOGGED_IN } from '../store/getters/auth'
+import { LOGIN, LOGOUT } from '../store/actions/auth'
+import { mapState, mapGetters, mapActions } from 'vuex'
+import router from '../router'
 
 export default {
   name: 'app',
-  computed: mapState({
-    currentRoute: state => state.currentRoute,
-    title: state => state.title,
-    loggedIn: state => state.loggedIn
-  })
+  computed: {
+    ...mapState({
+      title: state => state.title,
+      route: state => state.route
+    }),
+    ...mapGetters(AUTH_MODULE, {
+      loggedIn: IS_LOGGED_IN
+    })
+  },
+  methods: {
+    ...mapActions(AUTH_MODULE, {
+      login: LOGIN,
+      logout: LOGOUT
+    })
+  },
+  created () {
+    if (this.loggedIn || this.route.hash) {
+      this.login(function(status) {
+        router.push({path: '/store'})
+      })
+    }
+  }
 }
 </script>
 
