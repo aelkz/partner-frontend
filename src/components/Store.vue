@@ -2,9 +2,12 @@
   <div class="container">
     <div class="row">
       <div id="available" class="col-6">
-        <h4 class="display-6">Lista de produtos disponíveis <button type="button" class="btn btn-link" @click="getAllProducts()">Atualizar</button></h4>
         <div>
-          <table class="table table-hover">
+          <h4 class="display-6">Lista de produtos disponíveis <button type="button" class="btn btn-link" @click="getAllProducts()">Atualizar</button></h4>
+          <div v-if="productsError != null">
+            <b-alert show variant="danger" dismissible fade>Ocorreram erros ao atualizar a lista de produtos!</b-alert>
+          </div>
+          <table v-if="products != null" class="table table-hover">
             <thead>
               <tr>
                 <th>Detalhes</th>
@@ -26,6 +29,9 @@
       </div>
       <div id="selected" class="col-6">
         <h4 class="display-6">Carrinho de compras</h4>
+        <div v-if="checkoutError != null">
+          <b-alert show variant="danger" dismissible fade>Ocorreram erros ao finalizar a compra!</b-alert>
+        </div>
         <div v-if="cartItems.length">
           <table class="table table-hover border">
             <thead>
@@ -64,6 +70,8 @@ export default {
   computed: {
     ...mapState({
       products: state => state.products.products,
+      productsError: state => state.products.error,
+      checkoutError: state => state.cart.error
     }),
     ...mapGetters(CART_MODULE, {
       cartItems: CART_ITEMS

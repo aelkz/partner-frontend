@@ -47,6 +47,12 @@ Nesta aplicação utilizamos o framework de frontend [vue](https://vuejs.org/).
     $ npm i -s vuex-router-sync
     ```
 
+8. Adicionar o [vue-resource](https://github.com/pagekit/vue-resource) que será usado para executarmos chamadas remotas a api's.
+
+    ```
+    $ npm i -s vue-resource
+    ```
+
 8. Adicionar o suporte a [ES2015](https://babeljs.io/docs/en/babel-preset-es2015).
 
     ```

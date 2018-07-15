@@ -3,17 +3,25 @@ import backend from '../../api/backend'
 
 // Mutations
 const SET_PRODUCTS = 'setProducts'
+const SET_ERROR = 'setError'
 
 const state = {
-    products: []
+    products: [],
+    error: null
 }
 
-const getters = {}
+const getters = {
+}
 
 const actions = {
     [GET_ALL_PRODUCTS]: ({ commit }) => {
+        commit(SET_ERROR, null)
+        commit(SET_PRODUCTS, null)
+        
         backend.getAllProducts(products => {
             commit(SET_PRODUCTS, products)
+        }, error => {
+            commit(SET_ERROR, error)
         })
     }
 }
@@ -21,6 +29,10 @@ const actions = {
 const mutations = {
     [SET_PRODUCTS]: (state, products) => {
         state.products = products
+    },
+
+    [SET_ERROR]: (state, error) => {
+        state.error = error
     }
 }
 

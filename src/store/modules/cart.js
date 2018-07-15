@@ -9,10 +9,12 @@ const SET_CART_ITEMS = 'setCartItems'
 const SET_CHECKOUT_STATUS = 'setCheckoutStatus'
 const SUCCESS = 'success'
 const FAILED = 'failed'
+const SET_ERROR = 'setError'
 
 const state = {
     cart: [],
-    checkoutStatus: null
+    checkoutStatus: null,
+    error: null
 }
 
 const getters = {
@@ -29,13 +31,14 @@ const getters = {
 
 const actions = {
     [CHECKOUT]: ({ commit, state }, products) => {
+        commit(SET_ERROR, null)
         commit(SET_CHECKOUT_STATUS, null)
 
         backend.buyProducts(products, success => {
             commit(SET_CART_ITEMS, [])
             commit(SET_CHECKOUT_STATUS, SUCCESS)
-        }, failed => {
-            console.log(failed);
+        }, error => {
+            commit(SET_ERROR, error)
             commit(SET_CHECKOUT_STATUS, FAILED)
         })
     },
@@ -75,6 +78,10 @@ const mutations = {
 
     [SET_CHECKOUT_STATUS]: (state, status) => {
         state.checkoutStatus = status
+    },
+
+    [SET_ERROR]: (state, error) => {
+        state.error = error
     }
 }
 
