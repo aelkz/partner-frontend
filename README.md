@@ -1,6 +1,6 @@
-# Partner Frontend
+# Partner Front-end
 
-In this application we use [Vue](https://vuejs.org/) frontend framework.
+In this application we use [Vue](https://vuejs.org/) front-end framework.
 
 ## Project structure
 
