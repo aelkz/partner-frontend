@@ -4,7 +4,7 @@ This application will be created using [Vue](https://vuejs.org/).
 
 ## Building the application
 
-1. Create an application using the frontend components framework [bootstrap-vue](https://bootstrap-vue.js.org/).
+1. Create an application using the front-end components framework [bootstrap-vue](https://bootstrap-vue.js.org/).
 
     ```
     $ vue init bootstrap-vue/webpack-simple <project-name>
