@@ -1,130 +1,132 @@
 # Partner Frontend
 
-Nesta aplicação utilizamos o framework de frontend [vue](https://vuejs.org/).
+This application will be created using [Vue](https://vuejs.org/).
 
-## Construindo a aplicação
+## Building the application
 
-1. Criar a aplicação utilizando o template com o [bootstrap-vue](https://bootstrap-vue.js.org/).
+1. Create an application using the frontend components framework [bootstrap-vue](https://bootstrap-vue.js.org/).
 
     ```
     $ vue init bootstrap-vue/webpack-simple <project-name>
     ```
 
-2. Instalar as dependências básicas.
+2. Install all basic dependencies to test it
 
     ```
     $ npm install
     ```
 
-3. Testar a aplicaão.
+3. Test the application running the following command, and access [http://localhost:8080]()
 
     ```
     $ npm run dev
     ```
 
-4. *[Opcional]* - Caso ocorra erro na execuão do comando `'npm run dev'` possívelmente deve ser por conta da falta de algumas dependências. Utilize os comandos abaixo para instalar algumas já mapeadas:
+4. *[Optional]* - In case you see errors while executing the command above `'npm run dev'`, it's possible that some libraries are missing. Use the following commands to install some possible ones:
 
     ```
     $ npm i -s postcss-import
     $ npm i -s postcss-url
     ```
 
-5. Adicionar o [vue-router](https://router.vuejs.org) para tratarmos as questões de Roteamento na aplicaão.
+5. Add the [vue-router](https://router.vuejs.org) to control the routing within the application
 
     ```
     $ npm i -s vue-router
     ```
     
-6. Adicionar o [vuex](https://vuex.vuejs.org/) que será o nosso 'Centralized State Management'.
+6. Add the [vuex](https://vuex.vuejs.org/) which will be the *Centralized State Management* for this application
 
     ```
     $ npm i -s vuex
     ```
 
-7. Adicionar o [vuex-router-sync](https://github.com/vuejs/vuex-router-sync) que será syncronizará as rotas com o storage centralizado.
+7. Add the [vuex-router-sync](https://github.com/vuejs/vuex-router-sync) which will be router state synchronization mechanism.
 
     ```
     $ npm i -s vuex-router-sync
     ```
 
-8. Adicionar o [vue-resource](https://github.com/pagekit/vue-resource) que será usado para executarmos chamadas remotas a api's.
+8. Add the [vue-resource](https://github.com/pagekit/vue-resource) which will be used to execute the remote calls to the API's.
 
     ```
     $ npm i -s vue-resource
     ```
 
-8. Adicionar o suporte a [ES2015](https://babeljs.io/docs/en/babel-preset-es2015).
+9. Add support for [ES2015](https://babeljs.io/docs/en/babel-preset-es2015).
 
     ```
     npm i -s babel-preset-es2015
     ```
 
-9. Adicionar o suporte a [Rest Spread](https://babeljs.io/docs/en/babel-plugin-transform-es2015-spread).
+10. Add support for [Rest Spread](https://babeljs.io/docs/en/babel-plugin-transform-es2015-spread).
 
     ```
     $ npm i -s babel-plugin-transform-object-rest-spread
     ```
 
-10. Adicionar o suporte a [Destricturing](https://babeljs.io/docs/en/babel-plugin-transform-es2015-destructuring).
+11. Add support for [Destricturing](https://babeljs.io/docs/en/babel-plugin-transform-es2015-destructuring).
 
     ```
     $ npm i -s babel-plugin-transform-es2015-destructuring
     ```
 
-11. Para executar o build para Produção executar o seguinte comando.
+12. To build the application for production use the following command
 
     ```
     $ npm run build
     ```
 
-## Integração com RH-SSO
+## RH-SSO Integration
 
-1. Instalar o RH-SSO documentado no access [RH-SSO Installation](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html/red_hat_single_sign-on_for_openshift/getting_started#using_the_rh_sso_for_openshift_image_streams_and_application_templates).
+1. Install RH-SSO as documented in this link [RH-SSO Installation](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html/red_hat_single_sign-on_for_openshift/getting_started#using_the_rh_sso_for_openshift_image_streams_and_application_templates).
 
-2. Logar como `admin` no RH-SSO.
+2. Login as `admin` in RH-SSO
 
-3. Criar um realm para a aplicação.
+3. Create a realm for the application (e.g demo).
 
-4. Criar um client acessando o item `Client` no menu principal.
+4. Create a new client accessing the item `Client` in the main menu.
 
-5. Configurar o cliente com:
+5. Fill fields with the following values:
     * ID: `partner-frontend` 
-    * Root URL: `[URL da aplicação. Ex: http://localhost:8080]`
+    * Root URL: `[application URL. Ex: http://localhost:8080]`
 
-6. Na página *Settings* cliente configure as seguintes propriedades:
+6. In *Settings* select the following options:
     * Access Type: `Public`
     * Implicit Flow Enabled: `On`
 
-7. Criar as *roles* da aplicação acessando a Aba `Roles`.
+7. In the application *roles* access the tab `Roles`.
     * Role Admin
         * Role Name: `admin`
     * Role User
         * Role Name: `user`
  
-8. Criar um usuário acessando o item `User` no menu principal.
-    * Adicionar o usuário:
+8. Create a user accessing the item `User` in the main menu.
+    * Add the following user:
         * User name: `test-adm`
-        * Adicionar a role: `admin`
-    * Adiconar o usuário:
+        * Add the role: `admin`
+    * Add the following user:
         * User name: `test-user`
-        * Adicionar a role: `user`
+        * Add the role: `user`
 
-9.  Entrar na Aba *Installation* do Client, selecionar a opção *Keycloak OIDC JSON* e fazer o download do arquivo JSON para a pasta `src/external`.
+9.  In the client's *Installation* tab, select the option *Keycloak OIDC JSON*, download the JSON file, and save it into `src/external`.
 
-10. Formate o arquivo conforme especificado abaixo:
+10. Format the downloaded file as describe bellow:
 
     ```
     const keycloak_conf = {
-        //Incluir o conteúdo do arquivo baixado aqui
+        //Include the JSON properties here
 
-        //Adicionar as seguintes propriedades
-        "url": "[mesmo conteudo da propriedade auth-server-url do arquivo original]",
+        //Add the following properties
+        "url": "[this property has have the same value of auth-server-url]",
         "clientId": "partner-frontend"
     }
 
     export default keycloak_conf
     ```
 
-11. Efetuar o deployment da aplicação.
+11. Download the Javascript Adapter [https://RH-SSO-Host/auth/js/keycloak.js]()
 
-12. Acessar a url de login da aplicação `http://host:port/login` e clicar no botão de *Login with Single Sign-On*.
+12. Test the application running `npm dev run`.
+
+13. Access the application's login URL [http://localhost:8080/login]() and click the button *Login with Single Sign-On*.

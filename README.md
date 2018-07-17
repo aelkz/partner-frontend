@@ -1,20 +1,23 @@
 # Partner Frontend
 
-Nesta aplicação utilizamos o framework de frontend [vue](https://vuejs.org/).
+In this application we use [Vue](https://vuejs.org/) frontend framework.
 
-## Estrutura do projeto
+## Project structure
 
-A estrutura do projeto segue alguns padrões e boas práticas de aplicações Vue.
+The project structure follows the patterns and best practices of Vue applications.
 
 ```
-src/api        -> Backend de API's que serão usadas pelo projeto
-src/assets     -> Imagens e outros assets
-src/components -> Components Vue
-src/router     -> Routas
-src/store      -> Store centralizados para Vuex
-src/style      -> Estilos genéricos
-main.js        -> Principal ponto de entrada da aplicação
+src/api        -> Backend de API's that will be used by the project
+src/assets     -> Images and other assets
+src/components -> Vue Components
+src/router     -> Routes
+src/store      -> Centralized state management
+src/external   -> Location for external resources
+src/style      -> Styles
+main.js        -> Main entrypoint of the application
 ```
----
-Para detalhes de como a aplicação foi construida acesse
-[how to build](README-HOWTO.md)
+
+## Build details
+
+For more details on how this application was created look at the following 
+[How to build](README-HOWTO.md)
