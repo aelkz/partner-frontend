@@ -132,4 +132,4 @@
 
 15. Access the application's login URL [http://localhost:8080/login]() and click the button *Login with Single Sign-On*.
 
-    **NOTE**: If you see errors in the API call check if there are errors in the Browser console. Perhaps you need to accept the server certificate to call the API.
+    **NOTE**: If you see errors in the API call, check if there are errors in the Browser Console. Perhaps you need to accept the server certificate of the API.
