@@ -19,5 +19,8 @@ main.js        -> Main entrypoint of the application
 
 ## Build details
 
-For more details on how this application was created look at the following 
-[How to build](README-HOWTO.md)
+For more information on:
+
+* [How to build](README-HOWTO.md)
+* [Test with RH-SSO](README-RHSSO.md)
+* [Test with 3scale with RH-SSO](README-3scale-RHSSO.md)

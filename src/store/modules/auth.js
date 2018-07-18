@@ -7,6 +7,8 @@ import keycloak_conf from '../../external/keycloak.json'
 //Mutations
 const SET_TOKEN = 'setToken'
 
+const clientID = 'f44ab538'
+
 const keycloak = new Keycloak(keycloak_conf)
 
 const state = {
@@ -32,12 +34,17 @@ const actions = {
 
       keycloak.init({ onLoad: 'login-required' }).success(function(authenticated) {
         console.log(authenticated ? 'authenticated' : 'not authenticated');
-        console.log('keycloak.resourceRoles=' + keycloak.tokenParsed.resource_access["partner-frontend"].roles)
-        console.log('keycloak.realmRoles=' + keycloak.tokenParsed.realm_access.roles)
+        console.log(keycloak.tokenParsed);
+
+        let resourceRoles = keycloak.tokenParsed.resource_access[clientID] ? keycloak.tokenParsed.resource_access[clientID].roles : null
+        let realmRoles = keycloak.tokenParsed.realm_access ? keycloak.tokenParsed.realm_access.roles : null
+
+        console.log('keycloak.resourceRoles=' + resourceRoles)
+        console.log('keycloak.realmRoles=' + realmRoles)
 
         commit(SET_TOKEN, keycloak.token, 
-            keycloak.tokenParsed.resource_access["partner-frontend"].roles, 
-            keycloak.tokenParsed.realm_access.roles)
+            resourceRoles, 
+            realmRoles)
 
         cb("success")
       }).error(function(error) {
