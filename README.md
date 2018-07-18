@@ -1,5 +1,11 @@
 # Partner Front-end
 
+Sample application to exemplify some concepts in the perspective of a front-end JavaScript application.
+ * API Gateway
+ * Single Sign-On
+ * OIDC
+ * OAuth2
+
 In this application we use [Vue](https://vuejs.org/) front-end framework.
 
 ## Project structure
@@ -23,4 +29,4 @@ For more information on:
 
 * [How to build](README-HOWTO.md)
 * [Test with RH-SSO](README-RHSSO.md)
-* [Test with 3scale with RH-SSO](README-3scale-RHSSO.md)
+* [Test with 3scale and RH-SSO](README-3scale-RHSSO.md)
