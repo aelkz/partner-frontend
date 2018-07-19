@@ -71,7 +71,13 @@ This application will be created using [Vue](https://vuejs.org/).
     $ npm i -s babel-plugin-transform-es2015-destructuring
     ```
 
-12. To build the application for production use the following command
+12. Add support for [HTML-webpack-plugin]()
+    
+    ```
+    $ npm install html-webpack-plugin
+    ```
+    
+1.  To build the application for production use the following command
 
     ```
     $ npm run build
