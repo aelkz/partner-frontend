@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "Running npm build..."
+
+npm run build
+
+echo "NPM build finished!"
