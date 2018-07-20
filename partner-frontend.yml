@@ -21,7 +21,7 @@ spec:
     git:
       ref: deploy-on-openshift
       uri: https://github.com/mgohashi/partner-frontend.git
-    contextDir: "dist"
+#    contextDir: "dist"
     type: Git
   strategy:
     sourceStrategy:
