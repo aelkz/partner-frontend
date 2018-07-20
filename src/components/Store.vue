@@ -3,41 +3,41 @@
     <div class="row">
       <div id="available" class="col-6">
         <div>
-          <h4 class="display-6">Lista de produtos disponíveis <button type="button" class="btn btn-link" @click="getAllProducts()">Atualizar</button></h4>
+          <h4 class="display-6">Available products list <button type="button" class="btn btn-link" @click="getAllProducts()">Atualizar</button></h4>
           <div v-if="productsError != null">
-            <b-alert show variant="danger" dismissible fade>Ocorreram erros ao atualizar a lista de produtos!</b-alert>
+            <b-alert show variant="danger" dismissible fade>There was an error to update the product list!</b-alert>
           </div>
           <table v-if="products != null" class="table table-hover">
             <thead>
               <tr>
-                <th>Detalhes</th>
+                <th>Details</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="prod in products" :key="prod.id">
                 <td>
-                  <h6>Nome</h6><p>{{prod.name}}</p>
+                  <h6>Name</h6><p>{{prod.name}}</p>
                   <h6>Loc.</h6><p>{{prod.location}}</p>
-                  <h6>Qtd. por Lote</h6><p>{{prod.minAmount}}</p>
+                  <h6>Batch amount</h6><p>{{prod.minAmount}}</p>
                 </td>
-                <td><button class="btn btn-primary btn-sm" @click="addProductToCart(prod)">Adicionar</button></td>
+                <td><button class="btn btn-primary btn-sm" @click="addProductToCart(prod)">Add</button></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       <div id="selected" class="col-6">
-        <h4 class="display-6">Carrinho de compras</h4>
+        <h4 class="display-6">Shopping cart</h4>
         <div v-if="checkoutError != null">
-          <b-alert show variant="danger" dismissible fade>Ocorreram erros ao finalizar a compra!</b-alert>
+          <b-alert show variant="danger" dismissible fade>There was an error to finalize the order!</b-alert>
         </div>
         <div v-if="cartItems.length">
           <table class="table table-hover border">
             <thead>
               <tr>
-                <th>Detalhes</th>
-                <th>Quantidade</th>
+                <th>Details</th>
+                <th>Amount</th>
                 <th></th>
               </tr>
             </thead>
@@ -45,14 +45,14 @@
               <tr v-for="prod in cartItems" :key="prod.id">
                 <td>{{prod.name}}</td>
                 <td>{{prod.amount}}</td>
-                <td><button class="btn btn-primary btn-sm" @click="removeProductFromCart(prod)">Remover</button></td>
+                <td><button class="btn btn-primary btn-sm" @click="removeProductFromCart(prod)">Remove</button></td>
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-primary btn-sm" @click="checkout()">Finalizar</button>
+          <button class="btn btn-primary btn-sm" @click="checkout()">Go to checkout</button>
         </div>
         <p v-else>
-          Nenhum produto foi adicionado
+          No product has been added!
         </p>
       </div>
     </div>

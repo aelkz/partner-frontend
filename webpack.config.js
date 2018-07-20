@@ -1,12 +1,14 @@
 var path = require('path')
 var webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'build.js'
   },
   module: {
@@ -53,7 +55,16 @@ module.exports = {
   performance: {
     hints: false
   },
-  plugins: [new ExtractTextPlugin("main.css")],
+  plugins: [
+    new ExtractTextPlugin("main.css"),
+    new HtmlWebpackPlugin({
+        hash: true,
+        title: 'Partner Frontend',
+        template: './src/index.html',
+        filename: './index.html'
+    }),
+    new CopyWebpackPlugin([{ from: 'nginx.conf', to: 'nginx.conf' }])
+  ],
   devtool: '#eval-source-map'
 }
 
