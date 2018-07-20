@@ -56,7 +56,7 @@ This application will be created using [Vue](https://vuejs.org/).
 9. Add support for [ES2015](https://babeljs.io/docs/en/babel-preset-es2015).
 
     ```
-    npm i -s babel-preset-es2015
+    $ npm i -s babel-preset-es2015
     ```
 
 10. Add support for [Rest Spread](https://babeljs.io/docs/en/babel-plugin-transform-es2015-spread).
@@ -65,7 +65,7 @@ This application will be created using [Vue](https://vuejs.org/).
     $ npm i -s babel-plugin-transform-object-rest-spread
     ```
 
-11. Add support for [Destricturing](https://babeljs.io/docs/en/babel-plugin-transform-es2015-destructuring).
+11. Add support for [Destructuring](https://babeljs.io/docs/en/babel-plugin-transform-es2015-destructuring).
 
     ```
     $ npm i -s babel-plugin-transform-es2015-destructuring
@@ -77,13 +77,13 @@ This application will be created using [Vue](https://vuejs.org/).
     $ npm install --save-dev html-webpack-plugin
     ```
     
-13.  Add support for [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin)
+13. Add support for [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin)
 
     ```
     $ npm install --save-dev copy-webpack-plugin
     ```
 
-14.  To build the application for production use the following command
+14. To build the application for production use the following command
 
     ```
     $ npm run build
