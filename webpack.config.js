@@ -1,7 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -61,7 +62,8 @@ module.exports = {
         title: 'Partner Frontend',
         template: './src/index.html',
         filename: './index.html'
-    })
+    }),
+    new CopyWebpackPlugin([{ from: 'nginx.conf', to: 'nginx.conf' }])
   ],
   devtool: '#eval-source-map'
 }
