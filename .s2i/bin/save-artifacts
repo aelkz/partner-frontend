@@ -9,4 +9,4 @@ if [ -d dist ]; then
 fi
 popd
 
-echo "Contents"
+echo "Contents generated!"
