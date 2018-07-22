@@ -23,6 +23,12 @@ src/style      -> Styles
 main.js        -> Main entrypoint of the application
 ```
 
+## To deploy in OpenShift
+
+```
+    $ ./deploy-to-openshift.sh
+```
+
 ## Build details
 
 For more information on:
